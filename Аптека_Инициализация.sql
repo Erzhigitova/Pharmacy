@@ -1,81 +1,81 @@
-CREATE TABLE ВидыЛекарств
+CREATE TABLE Р’РёРґС‹Р›РµРєР°СЂСЃС‚РІ
 (
-	КодВидыЛекарств int IDENTITY(1, 1) PRIMARY KEY,
-	НазваниеВидыЛекарств nvarchar(20) NOT NULL
+	РљРѕРґР’РёРґС‹Р›РµРєР°СЂСЃС‚РІ int IDENTITY(1, 1) PRIMARY KEY,
+	РќР°Р·РІР°РЅРёРµР’РёРґС‹Р›РµРєР°СЂСЃС‚РІ nvarchar(20) NOT NULL
 )
 
-Create TABLE Лекарство
+Create TABLE Р›РµРєР°СЂСЃС‚РІРѕ
 (
-	КодЛекарства int IDENTITY(1, 1) PRIMARY KEY,
-	НазваниеЛекарства nvarchar(20) NOT NULL,
-	КодВидыЛекарств int REFERENCES ВидыЛекарств(КодВидыЛекарств)
+	РљРѕРґР›РµРєР°СЂСЃС‚РІР° int IDENTITY(1, 1) PRIMARY KEY,
+	РќР°Р·РІР°РЅРёРµР›РµРєР°СЂСЃС‚РІР° nvarchar(20) NOT NULL,
+	РљРѕРґР’РёРґС‹Р›РµРєР°СЂСЃС‚РІ int REFERENCES Р’РёРґС‹Р›РµРєР°СЂСЃС‚РІ(РљРѕРґР’РёРґС‹Р›РµРєР°СЂСЃС‚РІ)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
 )
 
-CREATE TABLE Производитель(
-	КодПроизводителя int IDENTITY(1,1) PRIMARY KEY,
-	Название nvarchar(15) NOT NULL,
-	Страна nvarchar(15) NOT NULL
+CREATE TABLE РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ(
+	РљРѕРґРџСЂРѕРёР·РІРѕРґРёС‚РµР»СЏ int IDENTITY(1,1) PRIMARY KEY,
+	РќР°Р·РІР°РЅРёРµ nvarchar(15) NOT NULL,
+	РЎС‚СЂР°РЅР° nvarchar(15) NOT NULL
 )
 
-CREATE TABLE Дозировка(
-	КодДозировки int IDENTITY(1,1) PRIMARY KEY,
-	Дозировка nvarchar(10) NOT NULL
+CREATE TABLE Р”РѕР·РёСЂРѕРІРєР°(
+	РљРѕРґР”РѕР·РёСЂРѕРІРєРё int IDENTITY(1,1) PRIMARY KEY,
+	Р”РѕР·РёСЂРѕРІРєР° nvarchar(10) NOT NULL
 )
 
-CREATE TABLE Форма_выпуска(
-	КодФормы int IDENTITY(1,1) PRIMARY KEY,
-	Форма nvarchar(15) NOT NULL
+CREATE TABLE Р¤РѕСЂРјР°_РІС‹РїСѓСЃРєР°(
+	РљРѕРґР¤РѕСЂРјС‹ int IDENTITY(1,1) PRIMARY KEY,
+	Р¤РѕСЂРјР° nvarchar(15) NOT NULL
 )
 
-CREATE TABLE Должность
+CREATE TABLE Р”РѕР»Р¶РЅРѕСЃС‚СЊ
 (
-	КодДолжности int IDENTITY(1, 1) PRIMARY KEY,
-	НазваниеДолжности nvarchar(20) NOT NULL
+	РљРѕРґР”РѕР»Р¶РЅРѕСЃС‚Рё int IDENTITY(1, 1) PRIMARY KEY,
+	РќР°Р·РІР°РЅРёРµР”РѕР»Р¶РЅРѕСЃС‚Рё nvarchar(20) NOT NULL
 )
 
-CREATE TABLE Сотрудник
+CREATE TABLE РЎРѕС‚СЂСѓРґРЅРёРє
 (
-	КодСотрудника int IDENTITY(1, 1) PRIMARY KEY,
-	Фамилия nvarchar(20) NOT NULL,
-	Имя nvarchar(20) NOT NULL,
-	Телефон nvarchar(20) NOT NULL,
-	Адрес nvarchar(30) NOT NULL,
-	КодДолжности int REFERENCES Должность(КодДолжности)
+	РљРѕРґРЎРѕС‚СЂСѓРґРЅРёРєР° int IDENTITY(1, 1) PRIMARY KEY,
+	Р¤Р°РјРёР»РёСЏ nvarchar(20) NOT NULL,
+	РРјСЏ nvarchar(20) NOT NULL,
+	РўРµР»РµС„РѕРЅ nvarchar(20) NOT NULL,
+	РђРґСЂРµСЃ nvarchar(30) NOT NULL,
+	РљРѕРґР”РѕР»Р¶РЅРѕСЃС‚Рё int REFERENCES Р”РѕР»Р¶РЅРѕСЃС‚СЊ(РљРѕРґР”РѕР»Р¶РЅРѕСЃС‚Рё)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
 )
 
-CREATE TABLE Провайдеры
+CREATE TABLE РџСЂРѕРІР°Р№РґРµСЂС‹
 (
-	КодПровайдера int IDENTITY(1, 1) PRIMARY KEY,
-	НазваниеПровайдера nvarchar(20) NOT NULL
+	РљРѕРґРџСЂРѕРІР°Р№РґРµСЂР° int IDENTITY(1, 1) PRIMARY KEY,
+	РќР°Р·РІР°РЅРёРµРџСЂРѕРІР°Р№РґРµСЂР° nvarchar(20) NOT NULL
 )
 
-CREATE TABLE Склад(
-	КодДвижения int IDENTITY(1,1 ) PRIMARY KEY,
-	КодЛекарства int REFERENCES Лекарство(КодЛекарства)
+CREATE TABLE РЎРєР»Р°Рґ(
+	РљРѕРґР”РІРёР¶РµРЅРёСЏ int IDENTITY(1,1 ) PRIMARY KEY,
+	РљРѕРґР›РµРєР°СЂСЃС‚РІР° int REFERENCES Р›РµРєР°СЂСЃС‚РІРѕ(РљРѕРґР›РµРєР°СЂСЃС‚РІР°)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE,
-	КодФормы int REFERENCES Форма_выпуска(КодФормы)
+	РљРѕРґР¤РѕСЂРјС‹ int REFERENCES Р¤РѕСЂРјР°_РІС‹РїСѓСЃРєР°(РљРѕРґР¤РѕСЂРјС‹)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE, 
-	КодПроизводителя int REFERENCES Производитель(КодПроизводителя)
+	РљРѕРґРџСЂРѕРёР·РІРѕРґРёС‚РµР»СЏ int REFERENCES РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ(РљРѕРґРџСЂРѕРёР·РІРѕРґРёС‚РµР»СЏ)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE,
-	КодДозировки int REFERENCES Дозировка(КодДозировки)
+	РљРѕРґР”РѕР·РёСЂРѕРІРєРё int REFERENCES Р”РѕР·РёСЂРѕРІРєР°(РљРѕРґР”РѕР·РёСЂРѕРІРєРё)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE,
-	Цена float NOT NULL,
-	Количество int  NOT NULL,
-	ДатаИстеченияСрока date,
-	Признакдвижения nvarchar(50) NOT NULL,
-	Датадвижения date NOT NULL,
-	КодПровайдера int REFERENCES Провайдеры(КодПровайдера)
+	Р¦РµРЅР° float NOT NULL,
+	РљРѕР»РёС‡РµСЃС‚РІРѕ int  NOT NULL,
+	Р”Р°С‚Р°РСЃС‚РµС‡РµРЅРёСЏРЎСЂРѕРєР° date,
+	РџСЂРёР·РЅР°РєРґРІРёР¶РµРЅРёСЏ nvarchar(50) NOT NULL,
+	Р”Р°С‚Р°РґРІРёР¶РµРЅРёСЏ date NOT NULL,
+	РљРѕРґРџСЂРѕРІР°Р№РґРµСЂР° int REFERENCES РџСЂРѕРІР°Р№РґРµСЂС‹(РљРѕРґРџСЂРѕРІР°Р№РґРµСЂР°)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE,
-	КодСотрудника int REFERENCES Сотрудник(КодСотрудника)
+	РљРѕРґРЎРѕС‚СЂСѓРґРЅРёРєР° int REFERENCES РЎРѕС‚СЂСѓРґРЅРёРє(РљРѕРґРЎРѕС‚СЂСѓРґРЅРёРєР°)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
 )
